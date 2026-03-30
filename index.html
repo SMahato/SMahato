@@ -1,745 +1,479 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Independent energy consultant. Tesla-proven battery programme management, manufacturing quality, fleet analytics. Direct access. No overhead. Bengaluru.">
   <title>SMahato Consulting — Battery & Energy Programme Delivery</title>
-  <meta name="description" content="Independent energy consultant. Tesla-proven battery programme management, manufacturing quality, fleet analytics. Direct access. No overhead. Bengaluru."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            carbon: { bg:'#111111', card:'#181818', border:'#222222', subtle:'#2a2a2a' },
-          },
-          fontFamily: { sans: ['Inter','system-ui','sans-serif'] },
-        }
-      }
-    }
-  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+  <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
   <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    html { font-size: 16px; }
-    body {
-      background: #111111; color: #f5f5f5;
-      font-family: 'Inter', system-ui, sans-serif;
-      overflow-x: hidden;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── Nav ── */
-    .nav-scrolled {
-      background: rgba(17,17,17,0.95) !important;
-      backdrop-filter: blur(24px) !important;
-      -webkit-backdrop-filter: blur(24px) !important;
-      border-bottom: 1px solid #1e1e1e !important;
-    }
-
-    /* ── Hero bg ── */
-    .dot-grid {
-      background-image: radial-gradient(circle, #1e1e1e 1px, transparent 1px);
-      background-size: 32px 32px;
-    }
-
-    /* ── Section label ── */
-    .sec-label {
-      display: block;
-      font-size: 9px; font-weight: 700;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: #f59e0b; margin-bottom: 14px;
-    }
-
-    .amber { color: #f59e0b; }
-
-    /* ── Reveal ── */
-    .reveal {
-      opacity: 0; transform: translateY(20px);
-      transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    /* ── Tabs ── */
-    .tab-btn {
-      border-bottom: 2px solid transparent; color: #3a3a3a;
-      padding-bottom: 14px;
-      transition: color 0.15s ease, border-color 0.15s ease; cursor: pointer;
-      font-size: 13px; font-weight: 500; letter-spacing: -0.01em;
-    }
-    .tab-btn.active { color: #f59e0b; border-bottom-color: #f59e0b; }
-    .tab-btn:not(.active):hover { color: #666; }
-    .tab-panel { display: none; }
-    .tab-panel.active { display: grid; }
-
-    /* ── Cards ── */
-    .hover-card {
-      transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), border-color 0.2s ease, box-shadow 0.25s ease;
-    }
-    .hover-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(245,158,11,0.22) !important;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-    }
-
-    /* ── Mobile menu ── */
-    #mobile-menu { display: none; }
-    #mobile-menu.open { display: flex; }
-
-    /* ── Stat divider ── */
-    .stat-div { width: 1px; background: #1e1e1e; flex-shrink: 0; }
-
-    /* ── Pills ── */
-    .pill {
-      display: inline-flex; align-items: center;
-      padding: 3px 9px; border-radius: 9999px;
-      font-size: 10px; font-weight: 600; letter-spacing: 0.04em;
-    }
-    .pill-amber { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.24); color: #f59e0b; }
-    .pill-dark  { background: rgba(255,255,255,0.03); border: 1px solid #222; color: #444; }
-
-    /* ── Numbered circle ── */
-    .del-num {
-      width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
-      background: rgba(245,158,11,0.06); border: 1px solid rgba(245,158,11,0.18);
-      color: #f59e0b; font-size: 9px; font-weight: 700; margin-top: 1px;
-      letter-spacing: 0;
-    }
-
-    /* ── Section divider ── */
-    .sec-border { border-top: 1px solid #181818; }
-
-    /* ── Checklist ── */
-    .check-item {
-      display: flex; align-items: flex-start;
-      gap: 8px; color: #555; font-size: 12px; line-height: 1.6;
-    }
-    .check-item::before {
-      content: '✓'; color: #f59e0b; font-size: 9px; font-weight: 800;
-      flex-shrink: 0; margin-top: 3px;
-    }
-
-    /* ── Segment cards ── */
-    .seg-card {
-      background: #141414; border: 1px solid #1c1c1c; border-radius: 10px;
-      padding: 16px; transition: border-color 0.2s ease;
-    }
-    .seg-card:hover { border-color: #2a2a2a; }
-
-    /* ── Proof quote block ── */
-    .proof-block {
-      background: #131313; border: 1px solid rgba(245,158,11,0.08);
-      border-left: 2px solid rgba(245,158,11,0.3);
-      border-radius: 0 8px 8px 0; padding: 14px 16px; margin-top: 20px;
-    }
-
-    /* ── Why-independent icon card ── */
-    .why-card {
-      background: #141414; border: 1px solid #1c1c1c; border-radius: 12px;
-      padding: 28px; transition: border-color 0.2s ease, transform 0.25s ease;
-    }
-    .why-card:hover { border-color: #2a2a2a; transform: translateY(-2px); }
-
-    /* ── CTA button ── */
-    .btn-amber {
-      display: inline-block; background: #f59e0b; color: #000;
-      font-weight: 700; font-size: 13px; letter-spacing: -0.01em;
-      padding: 11px 24px; border-radius: 6px;
-      transition: opacity 0.15s ease, transform 0.15s ease;
-    }
-    .btn-amber:hover { opacity: 0.88; transform: translateY(-1px); }
-
-    .btn-ghost {
-      display: inline-block; color: #555; font-size: 13px;
-      padding: 11px 24px; border-radius: 6px;
-      border: 1px solid #222;
-      transition: border-color 0.15s ease, color 0.15s ease;
-    }
-    .btn-ghost:hover { border-color: #333; color: #888; }
-
-    /* ── Section heading ── */
-    .sec-h2 {
-      font-size: clamp(1.75rem, 3.8vw, 2.6rem);
-      font-weight: 700; letter-spacing: -0.03em; line-height: 1.12;
-    }
+:root{--bg-primary:#0f0f0f;--bg-secondary:#161616;--border-color:#222;--text-primary:#f5f5f5;--text-secondary:#999;--text-tertiary:#555;--accent:#f59e0b;--success:#10b981}*{box-sizing:border-box}html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}body{background:var(--bg-primary);color:var(--text-primary);font-family:'Inter',system-ui,sans-serif;line-height:1.6;overflow-x:hidden;margin:0;padding:0}nav{position:fixed;top:0;left:0;right:0;z-index:50;background:0;padding:18px 0;transition:all 300ms ease}nav.scrolled{background:rgba(15,15,15,0.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border-color);padding:12px 0}.nav-container{max-width:1280px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between}.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:14px;color:var(--text-primary)}.nav-logo:hover{opacity:0.8}.nav-logo-sm{color:var(--text-tertiary);font-weight:300;font-size:12px}.nav-links{display:flex;align-items:center;gap:28px}@media(max-width:768px){.nav-links{display:none}}.nav-link{font-size:13px;color:var(--text-tertiary);text-decoration:none;transition:color 150ms ease;padding-bottom:2px;border-bottom:1px solid transparent}.nav-link:hover{color:var(--text-primary);border-bottom-color:var(--accent)}.nav-status{font-size:11px;font-weight:700;color:var(--accent);display:flex;align-items:center;gap:6px}.nav-status::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;display:inline-block}.nav-status:hover{opacity:0.8}#hamburger{display:none;background:0;border:0;color:var(--text-primary);cursor:pointer;padding:8px;font-size:20px}@media(max-width:768px){#hamburger{display:block}}#mobile-menu{display:none;position:absolute;top:60px;left:0;right:0;background:rgba(15,15,15,0.98);backdrop-filter:blur(24px);border-bottom:1px solid var(--border-color);flex-direction:column;gap:0;padding:16px 32px}#mobile-menu.open{display:flex}.mobile-link{color:var(--text-tertiary);text-decoration:none;padding:12px 0;font-size:13px;display:block;transition:color 150ms ease}.mobile-link:hover{color:var(--text-primary)}.hero{background:linear-gradient(135deg,rgba(20,20,20,0.9) 0%,rgba(15,15,15,0.7) 100%);padding:160px 32px 100px;text-align:center;position:relative;overflow:hidden}.dot-grid{background-image:radial-gradient(circle,rgba(255,255,255,0.05) 1px,transparent 1px);background-size:50px 50px;background-position:0 0}.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:500px;height:500px;background:radial-gradient(circle,rgba(245,158,11,0.06) 0%,transparent 70%);border-radius:50%;pointer-events:none}.hero::after{content:'';position:absolute;bottom:-30%;left:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(245,158,11,0.04) 0%,transparent 70%);border-radius:50%;pointer-events:none}.section-label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:16px;display:block}h1{font-size:56px;font-weight:800;margin:0 0 24px;line-height:1.2}h2{font-size:42px;font-weight:800;margin:0 0 32px;line-height:1.2}h3{font-size:24px;font-weight:700;margin:0 0 16px}.hero-subtitle{font-size:18px;color:var(--text-secondary);margin:0 0 12px;max-width:650px;margin-left:auto;margin-right:auto}.hero-meta{font-size:12px;color:var(--text-tertiary);margin:0 0 32px}.section-subtitle{font-size:16px;color:var(--text-secondary);margin:0 0 32px;line-height:1.7}.proof-row{display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap;margin-top:48px}.proof-item{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}.proof-number{font-size:32px;font-weight:800;color:var(--accent)}.proof-label{font-size:12px;color:var(--text-secondary)}.stat-divider{width:1px;height:40px;background:var(--border-color);margin:0 8px}section{position:relative;z-index:1;padding:80px 32px;max-width:1280px;margin:0 auto;contain:layout style paint}@media(max-width:768px){section{padding:48px 20px}}section.full-width{max-width:100%;padding:80px 32px}.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s cubic-bezier(0.16,1,0.3,1),transform 0.6s cubic-bezier(0.16,1,0.3,1);will-change:opacity,transform}.reveal.visible{opacity:1;transform:translateY(0);transition-duration:0.6s}.timeline{display:flex;flex-direction:column;gap:32px;margin:0}.timeline-item{display:flex;gap:24px;position:relative}.timeline-item::before{content:'';position:absolute;left:6px;top:40px;width:2px;height:calc(100% + 32px);background:var(--border-color);z-index:0}.timeline-item:last-child::before{display:none}.timeline-dot{width:16px;height:16px;background:var(--accent);border-radius:50%;margin-top:4px;flex-shrink:0;z-index:1}.timeline-content{flex:1;padding:0 0 0 0}h4{font-size:16px;font-weight:700;margin:0 0 8px}.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;margin:0}.card{background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:8px;padding:32px;transition:all 0.3s ease;will-change:border-color,background-color}.card:hover{border-color:var(--accent);background:rgba(245,158,11,0.02)}p{margin:0 0 16px;font-size:14px;line-height:1.6}.card-badge{font-size:10px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;display:block}.card h3{margin-bottom:12px}.card p:last-child{margin-bottom:0}.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 32px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:700;border:1px solid transparent;transition:all 0.3s ease;cursor:pointer;text-transform:uppercase;letter-spacing:0.05em}.btn-primary{background:var(--accent);color:#000;will-change:background,transform,box-shadow}.btn-primary:hover{background:#f5a625;box-shadow:0 10px 32px rgba(245,158,11,0.3);transform:translateY(-2px)}.btn-secondary{background:transparent;color:var(--accent);border-color:var(--accent)}.btn-secondary:hover{background:rgba(245,158,11,0.1)}.form-group{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}label{font-size:12px;font-weight:600;color:var(--text-primary);text-transform:uppercase;letter-spacing:0.05em}input,textarea,select{background:var(--bg-secondary);border:1px solid var(--border-color);color:var(--text-primary);padding:12px 16px;border-radius:6px;font-family:inherit;font-size:14px;transition:border-color 0.3s ease}input:focus,textarea:focus,select:focus{outline:0;border-color:var(--accent);background:rgba(245,158,11,0.02)}textarea{resize:vertical;min-height:120px}footer{border-top:1px solid var(--border-color);background:var(--bg-secondary);padding:48px 32px 24px;margin-top:80px}.container{max-width:1280px;margin:0 auto;padding:0}.footer-section{margin-bottom:32px}footer h4{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:16px;color:var(--text-primary)}footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}footer a{color:var(--text-secondary);text-decoration:none;font-size:13px;transition:color 0.3s ease}footer a:hover{color:var(--accent)}.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--border-color);gap:24px}.footer-copyright{font-size:12px;color:var(--text-tertiary);margin:0}.footer-social{display:flex;gap:16px}@media(max-width:768px){.footer-bottom{flex-direction:column;align-items:flex-start}h1{font-size:36px}h2{font-size:28px}h3{font-size:20px}.proof-row{gap:8px}.proof-number{font-size:24px}.proof-label{font-size:11px}.timeline-item{gap:16px}.card-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
 
-<!-- ══════════ NAV ══════════ -->
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background:transparent;padding:18px 0;">
-  <div class="max-w-5xl mx-auto px-8 flex items-center justify-between">
-    <a href="#" class="flex items-center gap-2.5">
-      <span class="font-extrabold" style="color:#f5f5f5;letter-spacing:-0.04em;font-size:15px;">SM</span>
-      <span style="color:#2e2e2e;font-size:13px;font-weight:300;letter-spacing:0.02em;">Consulting</span>
-    </a>
-    <div class="hidden md:flex items-center gap-7">
-      <a href="#services"        class="nav-link" style="font-size:13px;color:#454545;">Services</a>
-      <a href="#results"         class="nav-link" style="font-size:13px;color:#454545;">Results</a>
-      <a href="#process"         class="nav-link" style="font-size:13px;color:#454545;">How It Works</a>
-      <a href="#why-independent" class="nav-link" style="font-size:13px;color:#454545;">Why Independent</a>
-      <a href="#contact"         class="nav-link" style="font-size:13px;color:#454545;">Contact</a>
-      <a href="mailto:mahatosumitk@gmail.com" style="font-size:11px;font-weight:700;color:#f59e0b;letter-spacing:0.02em;">● Available</a>
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <div class="nav-container">
+    <a href="#home" class="nav-logo">SM<span class="nav-logo-sm">Consulting</span></a>
+    <div class="nav-links">
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#results" class="nav-link">Results</a>
+      <a href="#process" class="nav-link">How It Works</a>
+      <a href="#why-independent" class="nav-link">Why Independent</a>
+      <a href="#contact" class="nav-link">Contact</a>
     </div>
-    <button id="hamburger" class="md:hidden p-1" style="color:#555;" aria-label="Menu">
+    <button id="hamburger" aria-label="Toggle menu">
       <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
       </svg>
     </button>
   </div>
-  <div id="mobile-menu" class="md:hidden flex-col px-6 pt-3 pb-5" style="background:rgba(17,17,17,0.98);border-top:1px solid #1a1a1a;">
-    <a href="#services"        class="mobile-link py-2.5 text-sm block" style="color:#555;">Services</a>
-    <a href="#results"         class="mobile-link py-2.5 text-sm block" style="color:#555;">Results</a>
-    <a href="#process"         class="mobile-link py-2.5 text-sm block" style="color:#555;">How It Works</a>
-    <a href="#why-independent" class="mobile-link py-2.5 text-sm block" style="color:#555;">Why Independent</a>
-    <a href="#contact"         class="mobile-link py-2.5 text-sm block" style="color:#555;">Contact</a>
-    <a href="mailto:mahatosumitk@gmail.com" class="mt-3 text-xs font-semibold" style="color:#f59e0b;">● Available</a>
+  <div id="mobile-menu">
+    <a href="#services" class="mobile-link">Services</a>
+    <a href="#results" class="mobile-link">Results</a>
+    <a href="#process" class="mobile-link">How It Works</a>
+    <a href="#why-independent" class="mobile-link">Why Independent</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+    <a href="mailto:mahatosumitk@gmail.com" class="mobile-link" style="margin-top: 16px;">Email</a>
   </div>
 </nav>
 
-
-<!-- ══════════ HERO ══════════ -->
-<section class="dot-grid min-h-screen flex flex-col items-center justify-center text-center px-6" style="padding-top:120px;padding-bottom:100px;">
-
-  <p class="reveal" style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#3a3a3a;margin-bottom:28px;font-weight:600;">
-    Battery Systems · Manufacturing Quality · Fleet Analytics
-  </p>
-
-  <h1 class="reveal font-extrabold"
-      style="font-size:clamp(2.6rem,8vw,5.8rem);letter-spacing:-0.046em;line-height:1.02;margin-bottom:28px;transition-delay:0.08s">
-    Your energy programme.<br/>
-    Delivered on time.<br/>
-    <span class="amber">At Gigafactory quality.</span>
-  </h1>
-
-  <p class="reveal" style="font-size:14px;color:#4a4a4a;line-height:1.85;max-width:440px;margin-bottom:14px;transition-delay:0.16s">
-    Energy storage OEMs, battery manufacturers, and utilities hire me when a programme is complex, the stakes are high, and they need someone who has actually shipped at scale.
-  </p>
-
-  <p class="reveal" style="font-size:11px;color:#2e2e2e;line-height:1.7;margin-bottom:40px;transition-delay:0.2s">
-    Ex-Tesla Sr. TPM · Powerwall 3 launch · 7 years Gigafactory · Independent since 2026
-  </p>
-
-  <div class="reveal flex gap-3 items-center justify-center" style="margin-bottom:72px;transition-delay:0.26s">
-    <a href="#contact" class="btn-amber">Request a consultation</a>
-    <a href="#services" class="btn-ghost">See services ↓</a>
+<!-- HOME SECTION -->
+<section id="home" class="hero dot-grid full-width">
+  <p class="reveal section-label">Battery Systems · Manufacturing Quality · Fleet Analytics</p>
+  <h1 class="reveal">Your energy programme.<br>Delivered on time.<br><span style="color: var(--accent);">At Gigafactory quality.</span></h1>
+  <p class="reveal hero-subtitle">Energy storage OEMs, battery manufacturers, and utilities hire me when a programme is complex, the stakes are high, and they need someone who has actually shipped at scale.</p>
+  <p class="reveal hero-meta">Ex-Tesla Sr. TPM · Powerwall 3 launch · 7 years Gigafactory · Independent since 2026</p>
+  <div class="reveal hero-ctas" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+    <a href="#contact" class="btn btn-primary">Request a consultation</a>
+    <a href="#services" class="btn btn-secondary">See services</a>
   </div>
-
-  <!-- Proof row -->
-  <div class="reveal flex flex-wrap items-center justify-center" style="transition-delay:0.34s;gap:0;">
-    <div class="px-6 py-2 text-center">
-      <div class="font-extrabold amber" style="font-size:1.6rem;letter-spacing:-0.04em;line-height:1;">20%</div>
-      <div style="font-size:10px;color:#3a3a3a;margin-top:5px;letter-spacing:0.02em;">yield improvement</div>
+  <div class="reveal proof-row">
+    <div class="proof-item">
+      <div class="proof-number">20%</div>
+      <div class="proof-label">Yield improvement</div>
     </div>
-    <div class="stat-div hidden sm:block" style="height:30px;align-self:center;"></div>
-    <div class="px-6 py-2 text-center">
-      <div class="font-extrabold" style="font-size:1.6rem;letter-spacing:-0.04em;line-height:1;">PW3</div>
-      <div style="font-size:10px;color:#3a3a3a;margin-top:5px;letter-spacing:0.02em;">launched on time</div>
+    <div class="stat-divider"></div>
+    <div class="proof-item">
+      <div class="proof-number">PW3</div>
+      <div class="proof-label">Launched on time</div>
     </div>
-    <div class="stat-div hidden sm:block" style="height:30px;align-self:center;"></div>
-    <div class="px-6 py-2 text-center">
-      <div class="font-extrabold" style="font-size:1.6rem;letter-spacing:-0.04em;line-height:1;">7+</div>
-      <div style="font-size:10px;color:#3a3a3a;margin-top:5px;letter-spacing:0.02em;">years at Tesla</div>
+    <div class="stat-divider"></div>
+    <div class="proof-item">
+      <div class="proof-number">7+</div>
+      <div class="proof-label">Years at Tesla</div>
     </div>
-    <div class="stat-div hidden sm:block" style="height:30px;align-self:center;"></div>
-    <div class="px-6 py-2 text-center">
-      <div class="font-extrabold" style="font-size:1.6rem;letter-spacing:-0.04em;line-height:1;">GW</div>
-      <div style="font-size:10px;color:#3a3a3a;margin-top:5px;letter-spacing:0.02em;">battery line scale</div>
+    <div class="stat-divider"></div>
+    <div class="proof-item">
+      <div class="proof-number">GW</div>
+      <div class="proof-label">Battery line scale</div>
     </div>
-  </div>
-
-</section>
-
-
-<!-- ══════════ CLIENT SEGMENTS STRIP ══════════ -->
-<div style="border-top:1px solid #171717;border-bottom:1px solid #171717;">
-  <div class="max-w-5xl mx-auto px-8" style="padding-top:36px;padding-bottom:36px;">
-    <p class="text-center reveal" style="font-size:9px;color:#2e2e2e;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;margin-bottom:20px;">Who I work with</p>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5">
-      <div class="reveal seg-card text-center">
-        <p style="font-size:12px;font-weight:600;color:#d0d0d0;margin-bottom:5px;">Energy Storage OEMs</p>
-        <p style="font-size:11px;color:#3e3e3e;line-height:1.55;">Battery pack & system manufacturers scaling to production</p>
-      </div>
-      <div class="reveal seg-card text-center" style="transition-delay:0.05s">
-        <p style="font-size:12px;font-weight:600;color:#d0d0d0;margin-bottom:5px;">Utilities & IPPs</p>
-        <p style="font-size:11px;color:#3e3e3e;line-height:1.55;">Deploying or operating grid-scale BESS</p>
-      </div>
-      <div class="reveal seg-card text-center" style="transition-delay:0.1s">
-        <p style="font-size:12px;font-weight:600;color:#d0d0d0;margin-bottom:5px;">EV / e-Mobility</p>
-        <p style="font-size:11px;color:#3e3e3e;line-height:1.55;">Manufacturers needing battery quality and programme support</p>
-      </div>
-      <div class="reveal seg-card text-center" style="transition-delay:0.15s">
-        <p style="font-size:12px;font-weight:600;color:#d0d0d0;margin-bottom:5px;">Energy Startups</p>
-        <p style="font-size:11px;color:#3e3e3e;line-height:1.55;">Bringing a first product to market without a full team</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ══════════ SERVICES ══════════ -->
-<section id="services" class="sec-border" style="padding:96px 0;">
-  <div class="max-w-5xl mx-auto px-8">
-
-    <span class="sec-label reveal">Services</span>
-    <h2 class="font-bold reveal sec-h2" style="margin-bottom:14px;transition-delay:0.1s">
-      Three specialisations.<br/><span class="amber">One point of contact.</span>
-    </h2>
-    <p class="reveal" style="font-size:14px;color:#484848;max-width:460px;margin-bottom:52px;transition-delay:0.15s;line-height:1.75">
-      Each engagement is scoped to your specific problem. No junior staff. No overhead billing. You work directly with me.
-    </p>
-
-    <!-- Tab buttons -->
-    <div class="flex reveal" style="border-bottom:1px solid #181818;margin-bottom:44px;transition-delay:0.2s;overflow-x:auto;gap:4px;">
-      <button class="tab-btn active whitespace-nowrap px-4" data-tab="product">Battery Programme Management</button>
-      <button class="tab-btn whitespace-nowrap px-4" data-tab="ops">Manufacturing Quality &amp; Yield</button>
-      <button class="tab-btn whitespace-nowrap px-4" data-tab="analytics">Fleet Analytics &amp; Diagnostics</button>
-    </div>
-
-    <!-- Tab: Battery Programmes -->
-    <div class="tab-panel active grid grid-cols-1 md:grid-cols-2 gap-12 items-start" data-panel="product">
-      <div>
-        <p class="text-xs font-semibold mb-3" style="color:#f59e0b;letter-spacing:0.08em;text-transform:uppercase;">For: OEMs, startups, utilities with hardware programmes</p>
-        <p class="text-sm leading-relaxed mb-5" style="color:#555;">
-          Battery programmes fail when HW, FW, SW, and service are not in lockstep across too many teams. I provide end-to-end programme ownership — from DVT through global launch — with the discipline Tesla demanded on Powerwall 3.
-        </p>
-        <p class="text-xs font-semibold mb-3" style="color:#f5f5f5;">What you receive:</p>
-        <div class="space-y-1.5 mb-6">
-          <p class="check-item text-xs" style="color:#555;">Programme roadmap with milestone ownership across all workstreams</p>
-          <p class="check-item text-xs" style="color:#555;">FMEA and risk register — supplier to system level</p>
-          <p class="check-item text-xs" style="color:#555;">Cross-functional alignment across 10–30 stakeholder teams</p>
-          <p class="check-item text-xs" style="color:#555;">Service and field readiness package before GA</p>
-          <p class="check-item text-xs" style="color:#555;">Executive decision-gate reporting on your cadence</p>
-        </div>
-        <a href="#contact" class="btn-amber" style="font-size:12px;padding:9px 18px;">Discuss your programme →</a>
-      </div>
-      <div class="space-y-4">
-        <div class="flex gap-3 items-start"><span class="del-num">01</span><div><p class="text-sm font-semibold" style="color:#f5f5f5;">DVT → Mass Production</p><p class="text-xs mt-0.5" style="color:#444;">Milestone ownership from prototype validation to full ramp</p></div></div>
-        <div class="flex gap-3 items-start"><span class="del-num">02</span><div><p class="text-sm font-semibold" style="color:#f5f5f5;">Launch Risk Management</p><p class="text-xs mt-0.5" style="color:#444;">Issues surfaced early — not at gate review</p></div></div>
-        <div class="flex gap-3 items-start"><span class="del-num">03</span><div><p class="text-sm font-semibold" style="color:#f5f5f5;">HW / FW / SW / Service Integration</p><p class="text-xs mt-0.5" style="color:#444;">All four workstreams coordinated, not siloed</p></div></div>
-        <div class="flex gap-3 items-start"><span class="del-num">04</span><div><p class="text-sm font-semibold" style="color:#f5f5f5;">Stakeholder Alignment</p><p class="text-xs mt-0.5" style="color:#444;">Decision-ready status — no "we'll follow up" delays</p></div></div>
-        <div class="p-4 rounded-lg mt-2" style="background:#161616;border:1px solid rgba(245,158,11,0.12);">
-          <p class="text-xs" style="color:#444;font-style:italic;">"Powerwall 3 — end-to-end programme ownership, 20+ stakeholder teams, global launch."</p>
-          <p class="text-xs mt-2" style="color:#333;">Tesla Inc. · Sr. TPM · 2023–2025</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tab: Quality & Yield -->
-    <div class="tab-panel grid grid-cols-1 md:grid-cols-2 gap-12 items-start" data-panel="ops">
-      <div>
-        <p class="text-xs font-semibold mb-3" style="color:#f59e0b;letter-spacing:0.08em;text-transform:uppercase;">For: Battery manufacturers, cell-to-pack lines, industrial production</p>
-        <p class="text-sm leading-relaxed mb-5" style="color:#555;">
-          Scrap and yield losses are margin losses. I apply Gigafactory-tested quality methods — 8D, DMAIC Six Sigma — to find root causes, quantify impact, and implement fixes that hold at production volume.
-        </p>
-        <p class="text-xs font-semibold mb-3" style="color:#f5f5f5;">What you receive:</p>
-        <div class="space-y-1.5 mb-6">
-          <p class="check-item text-xs" style="color:#555;">Root cause analysis report with measurable yield impact</p>
-          <p class="check-item text-xs" style="color:#555;">DMAIC improvement roadmap with owner and timeline</p>
-          <p class="check-item text-xs" style="color:#555;">Supplier qualification framework (rating, inspection, CAPA)</p>
-          <p class="check-item text-xs" style="color:#555;">Process capability study — weld, cell, module, or pack level</p>
-          <p class="check-item text-xs" style="color:#555;">Sustained improvement plan — not a one-time audit</p>
-        </div>
-        <a href="#contact" class="btn-amber" style="font-size:12px;padding:9px 18px;">Reduce your scrap costs →</a>
-      </div>
-      <div class="space-y-4">
-        <div class="flex gap-3 items-start"><span class="del-num">01</span><div><p class="text-sm font-semibold" style="color:#f5f5f5;">8D / Six Sigma DMAIC</p><p class="text-xs mt-0.5" style="color:#444;">Structured root-cause elimination with measured yield impact</p></div></div>
-        <div class="flex gap-3 items-start"><span class="del-num">02</span><div><p class="text-sm font-semibold" style="color:#f5f5f5;">Battery Process Engineering</p><p class="text-xs mt-0.5" style="color:#444;">Cell-to-pack, weld inspection, throughput bottleneck removal</p></div></div>
-        <div class="flex gap-3 items-start"><span class="del-num">03</span><div><p class="text-sm font-semibold" style="color:#f5f5f5;">Supplier Qualification</p><p class="text-xs mt-0.5" style="color:#444;">Rating systems, incoming inspection protocol, CAPA tracking</p></div></div>
-        <div class="flex gap-3 items-start"><span class="del-num">04</span><div><p class="text-sm font-semibold" style="color:#f5f5f5;">Pilot → Mass Production Scale-Up</p><p class="text-xs mt-0.5" style="color:#444;">Model 3 battery line scaled from first units to GW volume</p></div></div>
-        <div class="p-4 rounded-lg mt-2" style="background:#161616;border:1px solid rgba(245,158,11,0.12);">
-          <p class="text-xs" style="color:#444;font-style:italic;">"20% scrap reduction on Model 3 battery line — 8D and DMAIC, sustained at mass-production volume."</p>
-          <p class="text-xs mt-2" style="color:#333;">Tesla Gigafactory NV · 2018–2020</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tab: Fleet Analytics -->
-    <div class="tab-panel grid grid-cols-1 md:grid-cols-2 gap-12 items-start" data-panel="analytics">
-      <div>
-        <p class="text-xs font-semibold mb-3" style="color:#f59e0b;letter-spacing:0.08em;text-transform:uppercase;">For: Utilities, IPPs, OEMs with deployed BESS or EV fleets</p>
-        <p class="text-sm leading-relaxed mb-5" style="color:#555;">
-          Your deployed fleet is generating data you are not fully using. I build diagnostic and monitoring systems that surface faults before they become warranty claims — and energy models that turn telemetry into decisions.
-        </p>
-        <p class="text-xs font-semibold mb-3" style="color:#f5f5f5;">What you receive:</p>
-        <div class="space-y-1.5 mb-6">
-          <p class="check-item text-xs" style="color:#555;">Fleet monitoring architecture — anomaly detection before field failure</p>
-          <p class="check-item text-xs" style="color:#555;">Degradation model — lifecycle, warranty risk, replacement forecast</p>
-          <p class="check-item text-xs" style="color:#555;">Techno-economic feasibility study (NREL SAM or custom model)</p>
-          <p class="check-item text-xs" style="color:#555;">Data pipeline from telemetry to actionable insight (Python · R · SQL)</p>
-          <p class="check-item text-xs" style="color:#555;">Recommendations with financial quantification, not just analysis</p>
-        </div>
-        <a href="#contact" class="btn-amber" style="font-size:12px;padding:9px 18px;">Improve fleet uptime →</a>
-      </div>
-      <div class="space-y-4">
-        <div class="flex gap-3 items-start"><span class="del-num">01</span><div><p class="text-sm font-semibold" style="color:#f5f5f5;">Remote Fault Detection</p><p class="text-xs mt-0.5" style="color:#444;">Anomaly monitoring at Tesla fleet scale — before field failure</p></div></div>
-        <div class="flex gap-3 items-start"><span class="del-num">02</span><div><p class="text-sm font-semibold" style="color:#f5f5f5;">Storage Lifecycle Modelling</p><p class="text-xs mt-0.5" style="color:#444;">Degradation curves, warranty risk quantification, benchmarking</p></div></div>
-        <div class="flex gap-3 items-start"><span class="del-num">03</span><div><p class="text-sm font-semibold" style="color:#f5f5f5;">Energy System Feasibility</p><p class="text-xs mt-0.5" style="color:#444;">NREL SAM — solar-hybrid, techno-economic analysis</p></div></div>
-        <div class="flex gap-3 items-start"><span class="del-num">04</span><div><p class="text-sm font-semibold" style="color:#f5f5f5;">Telemetry → Insight Pipeline</p><p class="text-xs mt-0.5" style="color:#444;">Python · R · SQL — data turned into decisions, not decks</p></div></div>
-        <div class="p-4 rounded-lg mt-2" style="background:#161616;border:1px solid rgba(245,158,11,0.12);">
-          <p class="text-xs" style="color:#444;font-style:italic;">"Fleet monitoring deployed across Tesla energy product portfolio — remote diagnostics at production scale."</p>
-          <p class="text-xs mt-2" style="color:#333;">Tesla Inc. · Sr. TPM · 2023–2025</p>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
-
-<!-- ══════════ RESULTS ══════════ -->
-<section id="results" class="sec-border" style="padding:96px 0;">
-  <div class="max-w-5xl mx-auto px-8">
-
-    <span class="sec-label mb-3 reveal">Delivered results</span>
-    <h2 class="sec-h2 font-bold mb-4 reveal" style="transition-delay:0.1s">
-      Not claims.<br/><span class="amber">Outcomes delivered.</span>
-    </h2>
-    <p class="reveal" style="font-size:14px;color:#484848;max-width:480px;margin-bottom:52px;transition-delay:0.15s;line-height:1.75">
-      Every number below was earned at production scale — not in a pilot or proof-of-concept.
-    </p>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-      <div class="hover-card p-6 rounded-xl reveal" style="background:#161616;border:1px solid #1f1f1f;">
-        <span class="pill pill-amber mb-4">Battery Programme</span>
-        <h3 style="font-size:13px;font-weight:700;color:#f5f5f5;letter-spacing:-0.01em;margin-bottom:8px;">Powerwall 3 — On-Time Global Launch</h3>
-        <p style="font-size:12px;color:#484848;line-height:1.7;margin-bottom:16px;">End-to-end programme ownership from DVT to global availability. HW, FW, SW, and service aligned across 20+ teams. Scope: hardware milestones, firmware releases, service readiness, field tooling, and executive reporting — all coordinated by one programme manager.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;">
-          <span class="pill pill-dark">20+ stakeholders</span>
-          <span class="pill pill-dark">Global launch</span>
-          <span class="pill pill-dark">HW·FW·SW·Service</span>
-        </div>
+<!-- SERVICES SECTION -->
+<section id="services" style="padding-top: 100px;">
+  <div style="text-align: center; margin-bottom: 60px;">
+    <p class="reveal section-label">Our Services</p>
+    <h2 class="reveal">Specialist Solutions for Energy & Industrial Excellence</h2>
+    <p class="reveal section-subtitle">From battery systems to manufacturing optimization and fleet analytics, we deliver measurable results through deep technical expertise and strategic partnership.</p>
+  </div>
+  <div class="card-grid">
+    <div class="reveal card" style="background: linear-gradient(135deg, #131313 0%, #0d0d0d 100%); border: 1px solid rgba(245, 158, 11, 0.1);">
+      <p class="card-badge">Service 01</p>
+      <h3>End-to-End Programme Ownership</h3>
+      <p>Full lifecycle battery energy storage system development and deployment, from concept through operational excellence.</p>
+      <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border-color);">
+        <p style="font-size: 11px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">Deliverables</p>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; color: var(--text-secondary);">
+          <li style="margin-bottom: 8px;">• Site assessment and feasibility analysis</li>
+          <li style="margin-bottom: 8px;">• System design optimization</li>
+          <li style="margin-bottom: 8px;">• Vendor selection and procurement</li>
+          <li style="margin-bottom: 8px;">• Project execution and commissioning</li>
+          <li>• Performance monitoring</li>
+        </ul>
       </div>
-
-      <div class="hover-card p-6 rounded-xl reveal" style="background:#161616;border:1px solid #1f1f1f;transition-delay:0.08s">
-        <span class="pill pill-amber mb-4">Manufacturing Quality</span>
-        <h3 style="font-size:13px;font-weight:700;color:#f5f5f5;letter-spacing:-0.01em;margin-bottom:8px;">20% Yield Improvement — Model 3 Battery Line</h3>
-        <p style="font-size:12px;color:#484848;line-height:1.7;margin-bottom:16px;">DMAIC-led defect elimination on the Model 3 battery module line at Gigafactory Nevada. Root causes identified, corrective actions sustained at mass-production volume — not just at audit time.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;">
-          <span class="pill pill-dark">8D / DMAIC</span>
-          <span class="pill pill-dark">GW-scale line</span>
-          <span class="pill pill-dark">Sustained improvement</span>
-        </div>
-      </div>
-
-      <div class="hover-card p-6 rounded-xl reveal" style="background:#161616;border:1px solid #1f1f1f;transition-delay:0.16s">
-        <span class="pill pill-amber mb-4">Fleet Analytics</span>
-        <h3 style="font-size:13px;font-weight:700;color:#f5f5f5;letter-spacing:-0.01em;margin-bottom:8px;">Fleet Monitoring — Production-Scale Deployment</h3>
-        <p style="font-size:12px;color:#484848;line-height:1.7;margin-bottom:16px;">Remote fault detection and diagnostics deployed across the Tesla energy product fleet. Anomaly detection before field failure — reducing reactive service events and warranty exposure.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;">
-          <span class="pill pill-dark">Remote diagnostics</span>
-          <span class="pill pill-dark">Anomaly detection</span>
-          <span class="pill pill-dark">Warranty risk reduction</span>
-        </div>
-      </div>
-
-      <div class="hover-card p-6 rounded-xl reveal" style="background:#161616;border:1px solid #1f1f1f;transition-delay:0.24s">
-        <span class="pill pill-dark mb-4">Energy Feasibility</span>
-        <h3 style="font-size:13px;font-weight:700;color:#f5f5f5;letter-spacing:-0.01em;margin-bottom:8px;">Solar HVAC — 3.5-Year Payback Modelled</h3>
-        <p style="font-size:12px;color:#484848;line-height:1.7;margin-bottom:16px;">Thermal load simulation and financial modelling for commercial solar HVAC system. NREL SAM solar-fossil hybrid dispatch analysis — bankable numbers for investment decision.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;">
-          <span class="pill pill-dark">NREL SAM</span>
-          <span class="pill pill-dark">Techno-economic</span>
-          <span class="pill pill-dark">3.5yr payback</span>
-        </div>
-      </div>
-
+      <a href="#contact" class="btn btn-primary" style="margin-top: 24px;">Inquire Now</a>
     </div>
 
-    <!-- Credentials strip -->
-    <div class="mt-12 pt-8 reveal" style="border-top:1px solid #1a1a1a;">
-      <p class="text-center reveal" style="font-size:9px;color:#333;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;margin-bottom:20px;">Experience built at</p>
-      <div class="flex flex-wrap items-center justify-center gap-3">
-        <div style="padding:8px 12px;border-radius:6px;font-size:11px;font-weight:600;background:#161616;border:1px solid #1f1f1f;color:#555;">Tesla · 7 years</div>
-        <div style="padding:8px 12px;border-radius:6px;font-size:11px;font-weight:600;background:#161616;border:1px solid #1f1f1f;color:#555;">Gigafactory Nevada</div>
-        <div style="padding:8px 12px;border-radius:6px;font-size:11px;font-weight:600;background:#161616;border:1px solid #1f1f1f;color:#555;">Powerwall 3</div>
-        <div style="padding:8px 12px;border-radius:6px;font-size:11px;font-weight:600;background:#161616;border:1px solid #1f1f1f;color:#555;">Model 3 Battery</div>
-        <div style="padding:8px 12px;border-radius:6px;font-size:11px;font-weight:600;background:#161616;border:1px solid #1f1f1f;color:#555;">MS · Colorado State</div>
-        <div style="padding:8px 12px;border-radius:6px;font-size:11px;font-weight:600;background:#161616;border:1px solid #1f1f1f;color:#555;">Six Sigma · 8D</div>
+    <div class="reveal card" style="background: linear-gradient(135deg, #131313 0%, #0d0d0d 100%); border: 1px solid rgba(245, 158, 11, 0.1);">
+      <p class="card-badge">Service 02</p>
+      <h3>Production Excellence & Quality Assurance</h3>
+      <p>Optimize manufacturing output and quality metrics through data-driven insights and continuous process improvement.</p>
+      <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border-color);">
+        <p style="font-size: 11px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">Deliverables</p>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; color: var(--text-secondary);">
+          <li style="margin-bottom: 8px;">• Production baseline assessment</li>
+          <li style="margin-bottom: 8px;">• Quality metrics framework setup</li>
+          <li style="margin-bottom: 8px;">• Root cause analysis for defects</li>
+          <li style="margin-bottom: 8px;">• Process optimization recommendations</li>
+          <li>• Monthly performance dashboards</li>
+        </ul>
       </div>
+      <a href="#contact" class="btn btn-primary" style="margin-top: 24px;">Inquire Now</a>
     </div>
 
+    <div class="reveal card" style="background: linear-gradient(135deg, #131313 0%, #0d0d0d 100%); border: 1px solid rgba(245, 158, 11, 0.1);">
+      <p class="card-badge">Service 03</p>
+      <h3>Fleet Intelligence & Predictive Health</h3>
+      <p>Real-time monitoring and predictive diagnostics for electric vehicle and battery storage system fleets.</p>
+      <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border-color);">
+        <p style="font-size: 11px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">Deliverables</p>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; color: var(--text-secondary);">
+          <li style="margin-bottom: 8px;">• Fleet telemetry integration</li>
+          <li style="margin-bottom: 8px;">• Real-time health dashboards</li>
+          <li style="margin-bottom: 8px;">• Predictive failure algorithms</li>
+          <li style="margin-bottom: 8px;">• Maintenance scheduling optimization</li>
+          <li>• ROI tracking and reporting</li>
+        </ul>
+      </div>
+      <a href="#contact" class="btn btn-primary" style="margin-top: 24px;">Inquire Now</a>
+    </div>
   </div>
 </section>
 
-
-<!-- ══════════ PROCESS ══════════ -->
-<section id="process" class="sec-border" style="padding:96px 0;">
-  <div class="max-w-5xl mx-auto px-8">
-
-    <span class="sec-label mb-3 reveal">How it works</span>
-    <h2 class="sec-h2 font-bold mb-4 reveal" style="transition-delay:0.1s">
-      From first call<br/><span class="amber">to delivered outcome.</span>
-    </h2>
-    <p class="reveal" style="font-size:14px;color:#484848;max-width:480px;margin-bottom:52px;transition-delay:0.15s;line-height:1.75">
-      Engagements are scoped per project — no retainer lock-in, no intake forms. Most start with a single conversation.
-    </p>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-      <div class="hover-card p-6 rounded-xl reveal" style="background:#161616;border:1px solid #1f1f1f;">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
-          <div style="width:28px;height:28px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.18);color:#f59e0b;font-size:10px;font-weight:700;margin-top:0;">01</div>
-          <div>
-            <p style="font-size:13px;font-weight:700;color:#f5f5f5;">Discovery</p>
-            <p style="font-size:11px;color:#333;margin-top:2px;">1–2 sessions · Free</p>
-          </div>
-        </div>
-        <p style="font-size:12px;color:#484848;line-height:1.7;margin-bottom:10px;">One focused conversation to understand your constraint — the programme blocker, the yield issue, the data gap. You receive an honest assessment of whether and how I can help.</p>
-        <p style="font-size:11px;font-weight:600;color:#333;">You get: clear scope, honest fit assessment, no obligation</p>
-      </div>
-
-      <div class="hover-card p-6 rounded-xl reveal" style="background:#161616;border:1px solid #1f1f1f;transition-delay:0.08s">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
-          <div style="width:28px;height:28px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.18);color:#f59e0b;font-size:10px;font-weight:700;margin-top:0;">02</div>
-          <div>
-            <p style="font-size:13px;font-weight:700;color:#f5f5f5;">Analysis</p>
-            <p style="font-size:11px;color:#333;margin-top:2px;">Days to weeks · Data-driven</p>
-          </div>
-        </div>
-        <p style="font-size:12px;color:#484848;line-height:1.7;margin-bottom:10px;">Structured root-cause or feasibility work. Data-driven, not opinionated. You receive findings you can act on immediately — not a deck that needs three follow-up calls to interpret.</p>
-        <p style="font-size:11px;font-weight:600;color:#333;">You get: findings report, prioritised action list, decision support</p>
-      </div>
-
-      <div class="hover-card p-6 rounded-xl reveal" style="background:#161616;border:1px solid #1f1f1f;transition-delay:0.16s">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
-          <div style="width:28px;height:28px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.18);color:#f59e0b;font-size:10px;font-weight:700;margin-top:0;">03</div>
-          <div>
-            <p style="font-size:13px;font-weight:700;color:#f5f5f5;">Delivery</p>
-            <p style="font-size:11px;color:#333;margin-top:2px;">Weeks to months · Embedded or advisory</p>
-          </div>
-        </div>
-        <p style="font-size:12px;color:#484848;line-height:1.7;margin-bottom:10px;">I work at your pace — embedded in your team or as an advisor. Interim reports, stakeholder updates, and decision gates are handled. Progress is visible at every stage.</p>
-        <p style="font-size:11px;font-weight:600;color:#333;">You get: measurable progress, regular reporting, no surprises</p>
-      </div>
-
-      <div class="hover-card p-6 rounded-xl reveal" style="background:#161616;border:1px solid rgba(245,158,11,0.12);transition-delay:0.24s">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
-          <div style="width:28px;height:28px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.18);color:#f59e0b;font-size:10px;font-weight:700;margin-top:0;">04</div>
-          <div>
-            <p style="font-size:13px;font-weight:700;color:#f5f5f5;">Handover</p>
-            <p style="font-size:11px;color:#333;margin-top:2px;">Included · Your team owns the outcome</p>
-          </div>
-        </div>
-        <p style="font-size:12px;color:#484848;line-height:1.7;margin-bottom:10px;">Knowledge transfer so the improvement sticks when the engagement ends. Documentation, training, and follow-on support available as the programme evolves.</p>
-        <p style="font-size:11px;font-weight:600;color:#333;">You get: documented processes, trained team, sustainable outcome</p>
-      </div>
-
+<!-- RESULTS SECTION -->
+<section id="results" style="padding-top: 100px;">
+  <div style="text-align: center; margin-bottom: 60px;">
+    <p class="reveal section-label">Track Record</p>
+    <h2 class="reveal">Delivered, on time, at scale.</h2>
+    <p class="reveal section-subtitle">7 years building and shipping battery and energy systems.</p>
+  </div>
+  <div class="card-grid">
+    <div class="reveal card">
+      <div class="card-badge">Programme Delivery</div>
+      <h3>Powerwall 3 Launch</h3>
+      <p>End-to-end programme ownership, 20+ cross-functional teams, launched on time without critical field issues.</p>
+      <p style="font-size: 12px; color: var(--text-secondary); margin-top: 16px;">Tesla Inc. · 2023–2025</p>
     </div>
-
-    <div class="mt-12 text-center reveal">
-      <a href="#contact" class="btn-amber">Request a free discovery call</a>
+    <div class="reveal card">
+      <div class="card-badge">Manufacturing Quality</div>
+      <h3>20% Yield Improvement</h3>
+      <p>Battery line scaling: 8D and DMAIC six sigma applied, scrap reduction sustained at gigawatt production volume.</p>
+      <p style="font-size: 12px; color: var(--text-secondary); margin-top: 16px;">Tesla Gigafactory · 2018–2020</p>
     </div>
-
+    <div class="reveal card">
+      <div class="card-badge">Fleet Analytics</div>
+      <h3>Remote Fault Detection</h3>
+      <p>Fleet monitoring deployed across energy portfolio, processing 1M+ telemetry points daily, early anomaly detection.</p>
+      <p style="font-size: 12px; color: var(--text-secondary); margin-top: 16px;">Tesla Inc. · 2023–2025</p>
+    </div>
+  </div>
+  <div style="text-align: center; margin-top: 60px;">
+    <p class="reveal section-label">Next</p>
+    <h2 class="reveal">Let's do the same for you.</h2>
+    <a href="#contact" class="btn btn-primary" style="margin-top: 32px;">Request a consultation</a>
   </div>
 </section>
 
+<!-- PROCESS SECTION -->
+<section id="process" style="padding-top: 100px;">
+  <div style="text-align: center; margin-bottom: 60px;">
+    <p class="reveal section-label">How I Work</p>
+    <h2 class="reveal">Clear engagement from day one.</h2>
+    <p class="reveal section-subtitle">Discovery, planning, execution, delivery. No surprises. No junior staff. Direct access.</p>
+  </div>
 
-<!-- ══════════ WHY INDEPENDENT ══════════ -->
-<section id="why-independent" class="sec-border" style="padding:96px 0;">
-  <div class="max-w-5xl mx-auto px-8">
-
-    <span class="sec-label mb-3 reveal">Why independent</span>
-    <h2 class="sec-h2 font-bold mb-4 reveal" style="transition-delay:0.1s">
-      What you don't get<br/><span class="amber">from a large firm.</span>
-    </h2>
-    <p class="reveal" style="font-size:14px;color:#484848;max-width:480px;margin-bottom:52px;transition-delay:0.15s;line-height:1.75">
-      Large consulting firms have account managers, junior staff, and overhead baked into every invoice. You get none of that here.
-    </p>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-
-      <div class="why-card hover-card reveal">
-        <div style="margin-bottom:16px;">
-          <svg width="20" height="20" fill="none" stroke="#f59e0b" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
-          </svg>
-        </div>
-        <p style="font-size:13px;font-weight:700;color:#f5f5f5;margin-bottom:8px;">Direct access</p>
-        <p style="font-size:12px;color:#484848;line-height:1.7;">You speak to the person doing the work — not an account manager who briefs a team you never meet. Every call, every deliverable, every decision is me.</p>
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>1. Discovery Call (45 min)</h4>
+        <p>We talk through your programme, constraints, and where it's at risk. I ask hard questions. You get clarity on whether this is a fit.</p>
       </div>
-
-      <div class="why-card hover-card reveal" style="transition-delay:0.08s">
-        <div style="margin-bottom:16px;">
-          <svg width="20" height="20" fill="none" stroke="#f59e0b" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
-        </div>
-        <p style="font-size:13px;font-weight:700;color:#f5f5f5;margin-bottom:8px;">Candid advice</p>
-        <p style="font-size:12px;color:#484848;line-height:1.7;">No firm politics, no upsell incentive, no fear of losing a retainer. If something won't work, I say so. You get the honest view — not the one that extends the engagement.</p>
-      </div>
-
-      <div class="why-card hover-card reveal" style="transition-delay:0.16s">
-        <div style="margin-bottom:16px;">
-          <svg width="20" height="20" fill="none" stroke="#f59e0b" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
-          </svg>
-        </div>
-        <p style="font-size:13px;font-weight:700;color:#f5f5f5;margin-bottom:8px;">Tesla-grade execution</p>
-        <p style="font-size:12px;color:#484848;line-height:1.7;">Seven years at Gigafactory Nevada and Palo Alto — shipping real hardware at real scale. The rigour that shipped Powerwall 3 and the Model 3 battery line is what you get on your project.</p>
-      </div>
-
     </div>
 
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>2. Proposal & Agreement </h4>
+        <p>I send a scoped proposal with timeline, deliverables, and rate. No long contracts. You can pause or adjust scope anytime.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>3. Execution & Sync (Weekly)</h4>
+        <p>I take ownership of the work. Weekly check-ins, slack/email access, visible progress. You're never waiting for status.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>4. Delivery & Results (Impact)</h4>
+        <p>Clear deliverables: report, system, strategy, or resolved issue. Not a deck—real outcomes you can act on.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: var(--bg-secondary); margin: 80px -32px 0; padding: 80px 32px;">
+    <div style="max-width: 1280px; margin: 0 auto;">
+      <p class="reveal section-label" style="text-align: center;">Engagement Models</p>
+      <h2 class="reveal" style="text-align: center; margin-bottom: 50px;">Pick what fits your budget & timeline.</h2>
+
+      <div class="card-grid">
+        <div class="reveal card" style="background: var(--bg-primary); border-color: var(--border-color);">
+          <h3 style="font-size: 18px; margin-bottom: 16px;">Retainer</h3>
+          <p style="margin-bottom: 16px;">16–40 hours/month. Ongoing support, strategic advice, continuous improvement.</p>
+          <p style="font-weight: 600; color: var(--accent); margin-bottom: 0;">$8k–$15k/month</p>
+        </div>
+
+        <div class="reveal card" style="background: var(--bg-primary); border-color: var(--border-color);">
+          <h3 style="font-size: 18px; margin-bottom: 16px;">Project</h3>
+          <p style="margin-bottom: 16px;">Defined scope, fixed timeline. Manufacturing audit, fleet analysis, programme reset.</p>
+          <p style="font-weight: 600; color: var(--accent); margin-bottom: 0;">$30k–$150k</p>
+        </div>
+
+        <div class="reveal card" style="background: var(--bg-primary); border-color: var(--border-color);">
+          <h3 style="font-size: 18px; margin-bottom: 16px;">Advisory</h3>
+          <p style="margin-bottom: 16px;">Hourly or sprint-based. Specific problem, fast decision, expert input.</p>
+          <p style="font-weight: 600; color: var(--accent); margin-bottom: 0;">$200–$500/hour</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 60px;">
+    <p class="reveal section-label">Ready?</p>
+    <h2 class="reveal">Let's start with a conversation.</h2>
+    <a href="#contact" class="btn btn-primary" style="margin-top: 32px;">Schedule a discovery call</a>
   </div>
 </section>
 
+<!-- WHY INDEPENDENT SECTION -->
+<section id="why-independent" style="padding-top: 100px;">
+  <div style="text-align: center; margin-bottom: 60px;">
+    <p class="reveal section-label">Why Choose Independent</p>
+    <h2 class="reveal">Direct access. No layers. No overhead.</h2>
+    <p class="reveal section-subtitle">You get me—not a junior consultant, not a bench fill-rate, not a firm chasing utilization targets.</p>
+  </div>
 
-<!-- ══════════ CONTACT ══════════ -->
-<section id="contact" class="sec-border text-center" style="padding:96px 0;">
-  <div class="max-w-5xl mx-auto px-8">
+  <div class="card-grid">
+    <div class="reveal card">
+      <h3>Direct Access</h3>
+      <p>You work with me. Not an associate, not a "case leader" who touches your work for 10%. When you call, I answer. Slack. Email. Phone. Real-time.</p>
+    </div>
 
-    <span class="sec-label mb-3 reveal">Get in touch</span>
-    <h2 class="sec-h2 font-bold mb-3 reveal" style="transition-delay:0.1s">
-      Ready to move faster?<br/><span class="amber">Let's talk.</span>
-    </h2>
-    <p class="reveal" style="font-size:14px;color:#484848;margin-bottom:52px;transition-delay:0.18s;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.75">
-      Available for battery programme management, manufacturing quality, and fleet analytics engagements. Discovery calls are free and take 30 minutes.
-    </p>
+    <div class="reveal card">
+      <h3>No Overhead Billing</h3>
+      <p>You don't pay for office space, bench staff, or firm profit margins. My rate is clean—just expertise and delivery. No hidden costs.</p>
+    </div>
 
-    <div class="reveal" style="transition-delay:0.25s;max-width:480px;margin-left:auto;margin-right:auto;">
-      <div style="padding:28px;border-radius:12px;background:#161616;border:1px solid #1f1f1f;">
+    <div class="reveal card">
+      <h3>Aligned Incentives</h3>
+      <p>My success is your success. You shipped the product. You reduced scrap. You have happier customers. That's how I measure myself—not by billable hours.</p>
+    </div>
 
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
-          <div style="width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex-shrink:0;background:#f59e0b;color:#000;letter-spacing:-0.02em;">SM</div>
-          <div>
-            <p style="font-size:13px;font-weight:700;color:#f5f5f5;">Sumit Mahato</p>
-            <p style="font-size:11px;color:#484848;margin-top:2px;">Founder · Ex-Tesla Sr. TPM · SMahato Consulting</p>
-          </div>
+    <div class="reveal card">
+      <h3>Speed</h3>
+      <p>I move fast. No approval chains, no steering committees, no "I'll sync with the partner track." Issues get flagged, decisions happen, momentum stays.</p>
+    </div>
+
+    <div class="reveal card">
+      <h3>Candor</h3>
+      <p>I tell you what I think. If your plan won't work, I say so. If a decision is wrong, you hear it early—not after we're locked in. That's what you're paying for.</p>
+    </div>
+
+    <div class="reveal card">
+      <h3>Continuity</h3>
+      <p>Your work doesn't change hands between engagements. I know your context, your team, your constraints. That context is worth a lot.</p>
+    </div>
+  </div>
+
+  <div style="background: var(--bg-secondary); margin: 80px -32px 0; padding: 80px 32px;">
+    <div style="max-width: 1280px; margin: 0 auto; text-align: center;">
+      <p class="reveal section-label">The Difference</p>
+      <h2 class="reveal">Independent vs. Big Firm</h2>
+
+      <div style="margin-top: 50px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: stretch;">
+        <div class="reveal card" style="background: var(--bg-primary); border-color: var(--border-color); text-align: left;">
+          <h4 style="color: var(--accent); margin-bottom: 24px;">Big Consulting Firm</h4>
+          <ul style="padding: 0; margin: 0; list-style: none; font-size: 14px; color: var(--text-secondary); line-height: 2;">
+            <li>✗ 3–5 layers between you and decision-maker</li>
+            <li>✗ Junior analysts on your work, partner on your invoice</li>
+            <li>✗ Incentive to extend engagement, not end it</li>
+            <li>✗ Methodology-first, problem-second</li>
+            <li>✗ Leveraged utilization, bench-fill pressure</li>
+            <li>✗ Committee-based decisions, slow</li>
+          </ul>
         </div>
 
-        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
-          <a href="mailto:mahatosumitk@gmail.com"
-             style="display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:6px;border:1px solid #222;transition-colors:border-color 0.15s ease,color 0.15s ease;cursor:pointer;text-decoration:none;"
-             onmouseover="this.style.borderColor='rgba(245,158,11,0.3)'" onmouseout="this.style.borderColor='#222'">
-            <svg width="16" height="16" fill="none" stroke="#f59e0b" stroke-width="1.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-            </svg>
-            <div>
-              <p style="font-size:11px;color:#333;">Email</p>
-              <p style="font-size:11px;font-weight:600;color:#f5f5f5;margin-top:2px;">mahatosumitk@gmail.com</p>
-            </div>
-          </a>
-
-          <a href="https://www.linkedin.com/in/sumitmahato-37003176" target="_blank" rel="noopener noreferrer"
-             style="display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:6px;border:1px solid #222;transition-colors:border-color 0.15s ease,color 0.15s ease;cursor:pointer;text-decoration:none;"
-             onmouseover="this.style.borderColor='rgba(245,158,11,0.3)'" onmouseout="this.style.borderColor='#222'">
-            <svg width="16" height="16" fill="#f59e0b" viewBox="0 0 24 24">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-            </svg>
-            <div>
-              <p style="font-size:11px;color:#333;">LinkedIn</p>
-              <p style="font-size:11px;font-weight:600;color:#f5f5f5;margin-top:2px;">sumitmahato-37003176</p>
-            </div>
-          </a>
-
-          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:6px;border:1px solid #1f1f1f;">
-            <svg width="16" height="16" fill="none" stroke="#f59e0b" stroke-width="1.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
-            <div>
-              <p style="font-size:11px;color:#333;">Location</p>
-              <p style="font-size:11px;font-weight:600;color:#f5f5f5;margin-top:2px;">Bengaluru, Karnataka, India</p>
-            </div>
-          </div>
+        <div class="reveal card" style="background: var(--bg-primary); border-color: var(--accent); text-align: left; border-width: 2px;">
+          <h4 style="color: var(--accent); margin-bottom: 24px;">Independent Consultant</h4>
+          <ul style="padding: 0; margin: 0; list-style: none; font-size: 14px; color: var(--text-secondary); line-height: 2;">
+            <li>✓ You work with me directly, always</li>
+            <li>✓ Deep expertise, 7+ years in your domain</li>
+            <li>✓ Incentive to solve it, move on, repeat</li>
+            <li>✓ Problem-first, method applies as needed</li>
+            <li>✓ No overhead, no bench pressure</li>
+            <li>✓ Fast decisions, real accountability</li>
+          </ul>
         </div>
-        <!-- Google Calendar Appointment Scheduling begin -->
-<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-<script>
-(function() {
-  var target = document.currentScript;
-  window.addEventListener('load', function() {
-    calendar.schedulingButton.load({
-      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3fG7mzOg9lUi0GmCTrMEd1gXVzwfeUaOhGWU_xb4tbu6qrp4rJxowRJ1AKYZOc-QV1_tQxe5Df?gv=true',
-      color: '#f59e0b',
-      label: 'Book an appointment',
-      target,
-    });
-  });
-})();
-</script>
-
-<!-- end Google Calendar Appointment Scheduling -->
       </div>
     </div>
   </div>
 </section>
 
+<!-- CONTACT SECTION -->
+<section id="contact" style="padding-top: 100px;">
+  <div style="text-align: center; margin-bottom: 60px;">
+    <p class="reveal section-label">Contact</p>
+    <h2 class="reveal">Let's talk.</h2>
+    <p class="reveal section-subtitle">Schedule a discovery call, send an email, or share your programme details. I'll respond within 24 hours.</p>
+  </div>
 
-<!-- ══════════ FOOTER ══════════ -->
-<footer style="border-top:1px solid #1a1a1a;padding:32px 0;">
-  <div class="max-w-5xl mx-auto px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
-    <span style="font-weight:800;font-size:13px;color:#2a2a2a;letter-spacing:-0.03em;">
-      SM <span style="font-weight:300;color:#222;margin-left:2px;">Consulting</span>
-    </span>
-    <p style="font-size:11px;color:#222;">© 2026 Sumit Mahato · SMahato Consulting</p>
-    <div style="display:flex;gap:20px;">
-      <a href="mailto:mahatosumitk@gmail.com" style="font-size:11px;color:#2a2a2a;text-decoration:none;transition:color 0.15s ease;"
-         onmouseover="this.style.color='#555'" onmouseout="this.style.color='#2a2a2a'">Email</a>
-      <a href="https://www.linkedin.com/in/sumitmahato-37003176" target="_blank" rel="noopener noreferrer"
-         style="font-size:11px;color:#2a2a2a;text-decoration:none;transition:color 0.15s ease;"
-         onmouseover="this.style.color='#555'" onmouseout="this.style.color='#2a2a2a'">LinkedIn</a>
+  <div style="max-width: 800px; margin: 0 auto;">
+    <!-- Google Calendar Booking Button -->
+    <div class="reveal" style="text-align: center; margin-bottom: 80px;">
+      <script>
+      (function() {
+        var target = document.currentScript;
+        window.addEventListener('load', function() {
+          calendar.schedulingButton.load({
+            url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3fG7mzOg9lUi0GmCTrMEd1gXVzwfeUaOhGWU_xb4tbu6qrp4rJxowRJ1AKYZOc-QV1_tQxe5Df?gv=true',
+            color: '#F59E0B',
+            label: 'Book an free discovery call',
+            target,
+          });
+        });
+      })();
+      </script>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 80px;">
+      <!-- Quick Contact -->
+      <div class="reveal">
+        <h3 style="margin-bottom: 24px;">Quick Links</h3>
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <a href="mailto:mahatosumitk@gmail.com" class="btn btn-secondary" style="text-align: center; text-decoration: none; display: block;">Email me directly</a>
+          <a href="https://www.linkedin.com/in/sumitmahato-37003176" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="text-align: center; text-decoration: none; display: block;">Connect on LinkedIn</a>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="reveal">
+        <h3 style="margin-bottom: 24px;">Details</h3>
+        <p style="margin-bottom: 12px;"><strong>Email</strong><br><a href="mailto:mahatosumitk@gmail.com" style="color: var(--accent); text-decoration: none;">mahatosumitk@gmail.com</a></p>
+        <p style="margin-bottom: 12px;"><strong>Location</strong><br>Bengaluru, India<br>(Working across time zones)</p>
+        <p style="color: var(--text-secondary); font-size: 12px; margin-top: 20px;">Response time: Within 24 hours</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#why-independent">Why Independent</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="mailto:mahatosumitk@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/sumitmahato-37003176" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="#contact">Schedule a call</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>About</h4>
+      <ul>
+        <li><a href="#why-independent">Independent consultant</a></li>
+        <li><a href="#process">My approach</a></li>
+        <li><a href="#results">Track record</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copyright">© 2026 Sumit Mahato · SMahato Consulting</p>
+    <div class="footer-social">
+      <a href="mailto:mahatosumitk@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/sumitmahato-37003176" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
   </div>
 </footer>
 
-
-<!-- ══════════ JS ══════════ -->
 <script>
-  const nav = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('nav-scrolled', window.scrollY > 20);
-  }, { passive: true });
+/* NAVIGATION & SCROLL */
+const navbar = document.getElementById('navbar');
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+const navLinks = document.querySelectorAll('.nav-link');
+const mobileLinks = document.querySelectorAll('.mobile-link');
 
-  document.querySelectorAll('.nav-link').forEach(a => {
-    a.addEventListener('mouseenter', () => a.style.color = '#f5f5f5');
-    a.addEventListener('mouseleave', () => a.style.color = '#555');
+window.addEventListener('scroll', () => {
+  const shouldScroll = window.scrollY > 20;
+  const isScrolled = navbar.classList.contains('scrolled');
+
+  if (shouldScroll !== isScrolled) {
+    navbar.classList.toggle('scrolled', shouldScroll);
+  }
+}, { passive: true });
+
+
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', mobileMenu.classList.contains('open'));
+});
+
+mobileLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', false);
   });
+});
 
-  const ham = document.getElementById('hamburger');
-  const mob = document.getElementById('mobile-menu');
-  ham.addEventListener('click', () => mob.classList.toggle('open'));
-  document.querySelectorAll('.mobile-link').forEach(l => {
-    l.addEventListener('click', () => mob.classList.remove('open'));
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+    mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', false);
+  }
+});
+
+/* INTERSECTION OBSERVER FOR REVEAL ANIMATIONS */
+const revealElements = document.querySelectorAll('.reveal, .reveal-fade');
+
+const observerOptions = {
+  threshold: 0.15,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
   });
+}, observerOptions);
 
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const t = document.querySelector(a.getAttribute('href'));
-      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-    });
+revealElements.forEach((el) => {
+  observer.observe(el);
+});
+
+/* SMOOTH SCROLL ENHANCEMENT */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   });
-
-  const heroEls = document.querySelectorAll('section.dot-grid .reveal');
-  heroEls.forEach((el, i) => {
-    setTimeout(() => el.classList.add('visible'), 100 + i * 90);
-  });
-
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -24px 0px' });
-
-  document.querySelectorAll('.reveal').forEach(el => {
-    if (!el.closest('section.dot-grid')) io.observe(el);
-  });
-
-  document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-      document.querySelector(`[data-panel="${btn.dataset.tab}"]`).classList.add('active');
-    });
-  });
+});
 </script>
 
 </body>
