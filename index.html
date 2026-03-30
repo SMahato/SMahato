@@ -649,10 +649,25 @@
             </div>
           </div>
         </div>
-
-        <a href="mailto:mahatosumitk@gmail.com" class="btn-amber" style="display:block;width:100%;text-align:center;">
-          Book a free discovery call
-        </a>
+        <!-- Google Calendar Appointment Scheduling begin -->
+<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet" class="btn-amber" style="display:block;width:100%;text-align:center;">
+<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+<script>
+(function() {
+  var target = document.currentScript;
+  window.addEventListener('load', function() {
+    calendar.schedulingButton.load({
+      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3fG7mzOg9lUi0GmCTrMEd1gXVzwfeUaOhGWU_xb4tbu6qrp4rJxowRJ1AKYZOc-QV1_tQxe5Df?gv=true',
+      color: '#039BE5',
+      label: 'Book an appointment',
+      target,
+    });
+  });
+})();
+</script>
+<!-- end Google Calendar Appointment Scheduling -->
+        
+    
 
       </div>
     </div>
