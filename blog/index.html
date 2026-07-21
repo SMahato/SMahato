@@ -1,27 +1,78 @@
 ---
 layout: default
-title: "Blog"
-description: "Field notes on battery systems, manufacturing quality, and fleet analytics — from the factory floor, not the whiteboard."
+title: "My 50 cents"
+description: "My insights on energy system design, manufacturing, fleet analytics and energy policy."
 ---
 <section style="padding-top:120px;">
-  <div style="text-align:center;margin-bottom:60px;">
+  <div style="text-align:center;margin-bottom:48px;">
     <p class="section-label">Blog</p>
-    <h1>Field notes</h1>
-    <p class="section-subtitle" style="max-width:650px;margin-left:auto;margin-right:auto;">Notes on battery systems, manufacturing quality, and fleet analytics &mdash; from the factory floor, not the whiteboard.</p>
+    <h1>My 50 cents</h1>
+    <p class="section-subtitle" style="max-width:680px;margin-left:auto;margin-right:auto;">My insights on energy system design, manufacturing, fleet analytics and energy policy.</p>
   </div>
 
   {% if site.posts.size > 0 %}
-  <div class="card-grid">
+  <div class="blog-filters" id="blog-filters">
+    <button type="button" class="filter-btn active" data-topic="all">All</button>
+    {% for t in site.blog_topics %}
+    <button type="button" class="filter-btn" data-topic="{{ t.slug }}">{{ t.label }}</button>
+    {% endfor %}
+  </div>
+
+  <div class="card-grid" id="blog-grid">
     {% for post in site.posts %}
-    <a href="{{ post.url | relative_url }}" class="card blog-card" style="text-decoration:none;color:inherit;display:block;">
+    <a href="{{ post.url | relative_url }}" class="card blog-card" data-topics="{{ post.topics | join: ' ' }}" style="text-decoration:none;color:inherit;display:block;">
       <time class="card-badge" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
       <h3>{{ post.title }}</h3>
       <p>{{ post.description | default: post.excerpt | strip_html | truncate: 150 }}</p>
+      {% if post.topics %}
+      <div class="card-topics">
+        {% for t in site.blog_topics %}{% if post.topics contains t.slug %}<span class="topic-pill">{{ t.label }}</span>{% endif %}{% endfor %}
+      </div>
+      {% endif %}
       <p style="color:var(--accent);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-top:16px;margin-bottom:0;">Read &rarr;</p>
     </a>
     {% endfor %}
   </div>
+  <p id="blog-empty" style="display:none;text-align:center;color:var(--text-secondary);margin-top:40px;">No articles in this topic yet &mdash; check back soon.</p>
   {% else %}
   <p style="text-align:center;color:var(--text-secondary);">No posts yet &mdash; check back soon.</p>
   {% endif %}
 </section>
+
+<script>
+(function () {
+  var filters = document.getElementById('blog-filters');
+  if (!filters) return;
+  var buttons = filters.querySelectorAll('.filter-btn');
+  var cards = document.querySelectorAll('#blog-grid .blog-card');
+  var empty = document.getElementById('blog-empty');
+
+  function apply(topic) {
+    var shown = 0;
+    cards.forEach(function (card) {
+      var topics = (card.getAttribute('data-topics') || '').split(' ');
+      var match = topic === 'all' || topics.indexOf(topic) !== -1;
+      card.style.display = match ? '' : 'none';
+      if (match) shown++;
+    });
+    if (empty) empty.style.display = shown ? 'none' : 'block';
+  }
+
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      buttons.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var topic = btn.getAttribute('data-topic');
+      apply(topic);
+      history.replaceState(null, '', topic === 'all' ? location.pathname : '#' + topic);
+    });
+  });
+
+  // Honour a #topic in the URL on load (e.g. /blog/#energy-policy)
+  var initial = (location.hash || '').replace('#', '');
+  if (initial) {
+    var target = filters.querySelector('.filter-btn[data-topic="' + initial + '"]');
+    if (target) target.click();
+  }
+})();
+</script>

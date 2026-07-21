@@ -5,6 +5,7 @@ date: 2026-07-16
 author: Sumit Mahato
 categories: [residential-storage]
 tags: [BESS, home-battery, safety, CEA, standards, thermal-runaway, LFP, India]
+topics: [energy-system-design, manufacturing, energy-policy]
 description: "A home storage wave is only good news if it launches well. The market drivers, the honest pros and cons, the deployment landmines, and the Powerwall playbook adapted for India."
 published: true
 ---

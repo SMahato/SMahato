@@ -10,6 +10,17 @@ lang: en
 permalink: /blog/:title/
 markdown: kramdown
 
+# Controlled topic taxonomy for the blog filter (slug + display label)
+blog_topics:
+  - slug: energy-system-design
+    label: Energy system design
+  - slug: manufacturing
+    label: Manufacturing
+  - slug: fleet-analytics
+    label: Fleet analytics
+  - slug: energy-policy
+    label: Energy policy
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag

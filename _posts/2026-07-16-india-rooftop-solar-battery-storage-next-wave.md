@@ -5,6 +5,7 @@ date: 2026-07-16
 author: Sumit Mahato
 categories: [residential-storage]
 tags: [BESS, rooftop-solar, PM-Surya-Ghar, net-metering, lithium, lead-acid, India]
+topics: [energy-system-design, energy-policy]
 description: "PM Surya Ghar put solar on millions of Indian roofs and left the battery out on purpose. India's two-decade home-backup habit, shifting solar economics, and an ageing lead-acid base all point to the same lithium upgrade."
 published: true
 ---
