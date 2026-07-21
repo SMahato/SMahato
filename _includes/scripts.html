@@ -1,0 +1,124 @@
+<script>
+
+/* THEME TOGGLE */
+const themeToggle = document.getElementById('theme-toggle');
+const sunIcon = document.getElementById('sun-icon');
+const moonIcon = document.getElementById('moon-icon');
+const html = document.documentElement;
+
+// Initialize theme from localStorage or system preference
+function initTheme() {
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  html.setAttribute('data-theme', savedTheme);
+  updateThemeIcons(savedTheme);
+}
+
+function updateThemeIcons(theme) {
+  if (theme === 'dark') {
+    sunIcon.style.display = 'block';
+    moonIcon.style.display = 'none';
+  } else {
+    sunIcon.style.display = 'none';
+    moonIcon.style.display = 'block';
+  }
+}
+
+themeToggle.addEventListener('click', () => {
+  const currentTheme = html.getAttribute('data-theme') || 'light';
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+  html.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  updateThemeIcons(newTheme);
+});
+
+// Initialize on page load
+initTheme();
+
+/* NAVIGATION & SCROLL */
+const navbar = document.getElementById('navbar');
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+const navLinks = document.querySelectorAll('.nav-link');
+const mobileLinks = document.querySelectorAll('.mobile-link');
+
+window.addEventListener('scroll', () => {
+  const shouldScroll = window.scrollY > 20;
+  const isScrolled = navbar.classList.contains('scrolled');
+
+  if (shouldScroll !== isScrolled) {
+    navbar.classList.toggle('scrolled', shouldScroll);
+  }
+}, { passive: true });
+
+
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', mobileMenu.classList.contains('open'));
+});
+
+mobileLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', false);
+  });
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+    mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', false);
+  }
+});
+
+/* INTERSECTION OBSERVER FOR REVEAL ANIMATIONS */
+const revealElements = document.querySelectorAll('.reveal, .reveal-fade');
+
+const observerOptions = {
+  threshold: 0.15,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      // Add staggered delay based on position in the DOM
+      let parent = entry.target.parentElement;
+      let siblings = Array.from(parent.querySelectorAll('.reveal'));
+      let index = siblings.indexOf(entry.target);
+
+      // If no siblings found, look further up the tree
+      if (siblings.length <= 1) {
+        parent = entry.target.closest('.card-grid') || entry.target.parentElement.parentElement;
+        if (parent) {
+          siblings = Array.from(parent.querySelectorAll('.reveal'));
+          index = siblings.indexOf(entry.target);
+        }
+      }
+
+      const delay = Math.min(Math.max(index, 0) * 0.1, 0.3);
+      entry.target.style.transitionDelay = `${delay}s`;
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+revealElements.forEach((el) => {
+  observer.observe(el);
+});
+
+/* SMOOTH SCROLL ENHANCEMENT (same-page anchors only) */
+document.querySelectorAll('a[href*="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    const hash = href.slice(href.indexOf('#'));
+    if (hash.length < 2) return;
+    const target = document.querySelector(hash);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>

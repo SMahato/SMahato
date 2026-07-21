@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<section style="padding-top:120px;">
+  <a href="{{ '/blog/' | relative_url }}" class="post-back">&larr; All posts</a>
+  <header class="post-header">
+    <p class="section-label">Blog</p>
+    <h1 style="font-size:44px;">{{ page.title }}</h1>
+    <p class="post-meta">{{ page.date | date: "%B %-d, %Y" }}{% if page.author %} &middot; {{ page.author }}{% endif %}</p>
+  </header>
+  <div class="post-content">
+    {{ content }}
+  </div>
+  <div style="max-width:760px;margin:64px auto 0;padding-top:40px;border-top:1px solid var(--border-color);text-align:center;">
+    <p class="section-label">Let's talk</p>
+    <h2 style="font-size:28px;">Working on a programme like this?</h2>
+    <a href="{{ '/#contact' | relative_url }}" class="btn btn-primary" style="margin-top:16px;">Request a consultation</a>
+  </div>
+</section>

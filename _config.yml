@@ -1,0 +1,32 @@
+title: SMahato Consulting
+tagline: Battery & Energy Programme Delivery
+description: >-
+  Independent energy consultant. Tesla-proven battery programme management,
+  manufacturing quality, fleet analytics. Direct access. No overhead. Bengaluru.
+url: "https://smahato.com"
+author: Sumit Mahato
+lang: en
+
+permalink: /blog/:title/
+markdown: kramdown
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Posts inherit the post layout automatically
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: Sumit Mahato
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - vendor
+  - .gitignore
