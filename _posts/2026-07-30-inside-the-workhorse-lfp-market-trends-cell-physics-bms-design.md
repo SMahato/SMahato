@@ -7,6 +7,8 @@ categories: [stationary-storage]
 tags: [LFP, BMS, BTMS, cell-chemistry, thermal-runaway, sodium-ion, stationary-storage]
 topics: [energy-system-design, manufacturing]
 description: "Where each storage chemistry really sits on the road to commercialization, how an LFP cell actually works, and how the BMS and thermal system must be designed to catch every way it fails."
+cover_image: /assets/img/lfp/cover.jpg
+cover_image_credit: "Photo by Heru Dharma / Pexels"
 published: true
 ---
 
