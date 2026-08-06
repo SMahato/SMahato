@@ -8,8 +8,8 @@ tags: [net-metering, gross-metering, net-billing, rooftop-solar, PM-Surya-Ghar, 
 topics: [energy-policy, energy-system-design]
 description: "How metering in Karnataka actually works, why the arrangement you qualify for is rarely the one that suits your load, and the five field problems that decide whether a rooftop project survives."
 cover_image: /assets/img/solar_operator.jpg
-cover_image_alt: "Workers in hard hats and high-visibility vests installing a solar panel on a rooftop array in India"
-cover_image_credit: "Photo by Sam Panthaky / AFP"
+cover_image_alt: "Four installers in hard hats and high-visibility vests standing behind a solar panel on a rooftop in India"
+cover_image_credit: "Photo by Nadeem Jafar / Pexels"
 published: true
 ---
 
