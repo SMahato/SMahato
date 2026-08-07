@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Notes from Two Decades in Solar: An Expert's View of the Indian Energy Market"
+title: "Notes from Two Decades in Energy: An Expert's View of the Indian Energy Market"
 date: 2026-08-06
 author: Sumit Mahato
 categories: [rooftop-solar]
