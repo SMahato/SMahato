@@ -5,7 +5,7 @@ date: 2026-08-06
 author: Sumit Mahato
 categories: [rooftop-solar]
 tags: [net-metering, gross-metering, net-billing, rooftop-solar, PM-Surya-Ghar, ALMM, KERC, Karnataka, India]
-topics: [energy-policy, energy-system-design]
+topics: [energy-policy, energy-market]
 description: "How metering in Karnataka actually works, why the arrangement you qualify for is rarely the one that suits your load, and the five field problems that decide whether a rooftop project survives."
 cover_image: /assets/img/solar_operator.jpg
 cover_image_alt: "Four installers in hard hats and high-visibility vests standing behind a solar panel on a rooftop in India"
@@ -13,7 +13,7 @@ cover_image_credit: "Photo by Nadeem Jafar / Pexels"
 published: true
 ---
 
-*These notes are drawn from a discussion with [Anand Srinivasan](https://www.linkedin.com/in/srinivasananand/), who has over 20 years of experience developing renewable energy solutions in India. He is the founder of Vineeti Solar, where he helps deploy solar systems, and has a deep understanding of the Indian energy market. The perspective here is his, based on years in the field. Some points are personal opinion rather than data-backed claims. Policy and rate figures have been independently verified against the sources listed.*
+*These notes are drawn from a discussion with [Anand Srinivasan](https://www.linkedin.com/in/srinivasananand/), who has over 20 years of experience developing energy solutions in India. He is the founder of Vineeti Solar, where he helps deploy solar systems, and has a deep understanding of the Indian energy market. The perspective here is his, based on years in the field. Some points are personal opinion rather than data-backed claims. Policy and rate figures have been independently verified against the sources listed.*
 
 ## The metering arrangements in Karnataka
 
@@ -25,9 +25,9 @@ Net metering is available to all the customer segments in Karnataka with an irre
 
 This landscape is changing rapidly with the domestic-content rule closing in. To commission a net-metering or open-access project, the government is moving to require solar cells from the domestic ALMM List-II, not just India-assembled modules. The original cutoff was 1 June 2026, but MNRE extended it to 31 December 2026 in a memorandum issued on 18 July 2026, specifically for net-metering and open-access projects. This is a genuine planning problem for developers, because ALMM List-II cells cost more and domestic solar cell capacity is still ramping. When this rule comes into effect, and when it combines with the capacity limits on larger rooftops, the economics of a C&I project shift, and battery storage starts to make more sense as a way to self-consume what you can no longer profitably export.
 
-**Net billing, the Tamil Nadu model.** This model is applicable to the commercial and industrial customers in Tamil Nadu and is worth naming separately, because it is often confused with net metering. Under net billing, the system is designed to serve your own load first, and only the excess you export is compensated, at a lower feed-in rate rather than at retail. That single change makes load matching and correct system sizing far more important, because every unit you fail to self-consume is worth much less once it is exported to the grid.
-
 **Gross metering.** Here the customer exports all generated energy to the grid at a fixed rate that sits well below the retail import rate. For reference, Karnataka's current DSPV export tariffs are around ₹3.86 per unit for domestic systems and ₹3.08 for other categories, against a retail import cost near ₹7. It is the least favourable arrangement for self-consumption, which is exactly why it suits a particular kind of user: captive plants that exceed the capacity threshold for net metering, generate far more than they consume, and are effectively in the business of selling power to the grid rather than offsetting their own bill.
+
+**Net billing, the Tamil Nadu model.** This model is applicable to the commercial and industrial customers in Tamil Nadu and is worth naming separately, because it is often confused with net metering. Under net billing, the system is designed to serve your own load first, and only the excess you export is compensated, at a lower feed-in rate rather than at retail. That single change makes load matching and correct system sizing far more important, because every unit you fail to self-consume is worth much less once it is exported to the grid.
 
 The through-line across all three is that the arrangement you qualify for, and the arrangement that suits your load, are not always the same, and the gap between them is where money is made or lost.
 
