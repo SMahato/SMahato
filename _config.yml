@@ -20,7 +20,9 @@ blog_topics:
     label: Fleet analytics
   - slug: energy-policy
     label: Energy policy
-
+  - slug: energy-market
+    label: Energy market
+    
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
