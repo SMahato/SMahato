@@ -15,7 +15,31 @@
       <a href="/blog/" class="nav-link">Blog</a>
       <a href="/#contact" class="nav-link">Contact</a>
     </div>
-
+    <button id="theme-toggle" aria-label="Toggle dark mode" style="background:0;border:0;color:var(--text-primary);cursor:pointer;padding:8px;font-size:18px;transition:all 0.3s ease;>
+      <svg id="sun-icon" width="20" height="20" viewBox="0 0 24 24" style="display:none;">
+        <!-- Hollow circle -->
+        <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <!-- Top ray -->
+        <rect x="11" y="1" width="2" height="2.5" rx="1" fill="currentColor"/>
+        <!-- Bottom ray -->
+        <rect x="11" y="20.5" width="2" height="2.5" rx="1" fill="currentColor"/>
+        <!-- Left ray -->
+        <rect x="1" y="11" width="2.5" height="2" rx="1" fill="currentColor"/>
+        <!-- Right ray -->
+        <rect x="20.5" y="11" width="2.5" height="2" rx="1" fill="currentColor"/>
+        <!-- Top-left ray -->
+        <rect x="3.5" y="3.5" width="2" height="2" rx="1" fill="currentColor" transform="rotate(45 4.5 4.5)"/>
+        <!-- Top-right ray -->
+        <rect x="18.5" y="3.5" width="2" height="2" rx="1" fill="currentColor" transform="rotate(-45 19.5 4.5)"/>
+        <!-- Bottom-left ray -->
+        <rect x="3.5" y="18.5" width="2" height="2" rx="1" fill="currentColor" transform="rotate(-45 4.5 19.5)"/>
+        <!-- Bottom-right ray -->
+        <rect x="18.5" y="18.5" width="2" height="2" rx="1" fill="currentColor" transform="rotate(45 19.5 19.5)"/>
+      </svg>
+      <svg id="moon-icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
     <button id="hamburger" aria-label="Toggle menu">
       <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
