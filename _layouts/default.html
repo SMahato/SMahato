@@ -53,8 +53,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;background:transparent;paddin
 nav.scrolled{background:var(--paper);border-bottom-color:var(--rule);padding:12px 0}
 .nav-container{max-width:1280px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between}
 @media(max-width:768px){.nav-container{position:relative}.nav-logo{position:absolute;left:50%;transform:translateX(-50%)}#hamburger{margin-left:auto}}
-.nav-logo{display:flex;align-items:center;gap:2px;text-decoration:none;font-size:28px;font-weight:700;color:var(--accent);font-family:'Crimson Text',serif;letter-spacing:-0.02em;padding:6px 12px;margin-left:-12px}
-.nav-logo-sm{color:var(--ink-2);font-weight:500;font-size:11px;font-family:'Sora',sans-serif;letter-spacing:0.08em;text-transform:uppercase;margin-left:2px}
+.nav-logo{display:flex;align-items:baseline;text-decoration:none;font-size:24px;font-weight:700;color:var(--ink);font-family:'Crimson Text',serif;letter-spacing:-0.01em;padding:6px 12px;margin-left:-12px}
+.logo-dot{color:var(--accent)}
+.nav-logo-sm{color:var(--ink-3);font-weight:600;font-size:10px;font-family:'Sora',sans-serif;letter-spacing:0.14em;text-transform:uppercase;margin-left:10px;padding-left:10px;border-left:1px solid var(--rule-strong)}
 .nav-links{display:flex;align-items:center;gap:28px;margin-left:auto}@media(max-width:768px){.nav-links{display:none}}
 .nav-link{font-size:13px;color:var(--ink-2);text-decoration:none;transition:color 150ms ease,border-color 150ms ease;padding-bottom:2px;border-bottom:1px solid transparent}
 .nav-link:hover{color:var(--ink);border-bottom-color:var(--accent)}
