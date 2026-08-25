@@ -32,8 +32,8 @@
   --accent:#c2521f;       /* single printed spot colour: fills, rules, marks */
   --accent-text:#b34a1c;  /* same hue, darkened for small type (AA on manila) */
   --accent-dark:#a3441a;
-  --grid:rgba(96,101,108,0.055);
-  --grid-major:rgba(96,101,108,0.09);
+  --grid:rgba(96,101,108,0.03);
+  --grid-major:rgba(96,101,108,0.05);
 }
 *{box-sizing:border-box}
 html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
@@ -69,15 +69,22 @@ nav.scrolled{background:var(--paper);border-bottom-color:var(--rule);padding:12p
 .mobile-link:last-child{border-bottom:0}
 .mobile-link:hover{color:var(--accent-text)}
 .hero{background:transparent;padding:150px 32px 90px;text-align:center;position:relative}
-/* Graph paper: open 52px rule with a heavier line every 4th square */
-.dot-grid{
+/* Graph paper lives on its own layer so it can be masked without fading the
+   text sitting on top of it. Open 52px rule, heavier line every 4th square,
+   dissolving toward the bottom of the hero. */
+.dot-grid{position:relative}
+.dot-grid::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
   background-image:
     linear-gradient(var(--grid-major) 1px,transparent 1px),
     linear-gradient(90deg,var(--grid-major) 1px,transparent 1px),
     linear-gradient(var(--grid) 1px,transparent 1px),
     linear-gradient(90deg,var(--grid) 1px,transparent 1px);
   background-size:208px 208px,208px 208px,52px 52px,52px 52px;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,0.55) 50%,transparent 92%);
+  mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,0.55) 50%,transparent 92%);
 }
+.dot-grid > *{position:relative;z-index:1}
 .hero::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--rule-strong)}
 .section-label{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-text);font-weight:600;margin-bottom:16px;display:block;font-family:'Sora',sans-serif}
 /* Lead-in tick, like an annotation on a drawing */
