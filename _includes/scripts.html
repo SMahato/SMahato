@@ -108,6 +108,14 @@ revealElements.forEach((el) => {
   observer.observe(el);
 });
 
+// Failsafe: if the observer never fired at all, the page would stay blank.
+// Reveal everything rather than show nothing.
+setTimeout(() => {
+  if (!document.querySelector('.reveal.visible')) {
+    revealElements.forEach((el) => el.classList.add('visible'));
+  }
+}, 2000);
+
 /* SMOOTH SCROLL ENHANCEMENT (same-page anchors only) */
 document.querySelectorAll('a[href*="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {

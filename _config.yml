@@ -26,9 +26,20 @@ blog_topics:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Default social-share card, used when a page sets no image of its own
+image: /assets/img/solar_operator.jpg
+
+twitter:
+  card: summary_large_image
 
 # Posts inherit the post layout automatically
 defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/img/solar_operator.jpg
   - scope:
       path: ""
       type: posts
